@@ -18,6 +18,7 @@ pre{white-space:pre}
 <label for=time>Timed Run? <input id=ms placeholder=milliseconds></label>
 <br>
 <pre id=stats></pre>
+<script src=https://rawgit.com/jtobey/javascript-bignum/blob/master/biginteger.js></script>
 <script src=bitman.js></script>
 <script>
 HTMLTextAreaElement.prototype.insertAtCaret=function(t){if(t=t||"",document.selection){this.focus();var e=document.selection.createRange();e.text=t}else if(this.selectionStart||0===this.selectionStart){var s=this.selectionStart,i=this.selectionEnd;this.value=this.value.substring(0,s)+t+this.value.substring(i,this.value.length),this.selectionStart=s+t.length,this.selectionEnd=s+t.length}else this.value+=t}
