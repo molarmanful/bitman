@@ -1,9 +1,9 @@
 var _templateObject = _taggedTemplateLiteral([''], ['']),
     _templateObject2 = _taggedTemplateLiteral([' '], [' ']);
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 //requires javascript-bignum library
 
@@ -62,13 +62,13 @@ commands = {
 		stack.push(Array(bits).fill(0));
 	},
 	'$': function $(x) {
-		stack.push(stack.pick(BigInteger(stack.pop()).toString(2)));
+		stack.push(stack.pick(BigInteger(stack.pop().join(_templateObject)).toString(2)));
 	},
 	'%': function _(x) {
 		stack.pop();
 	},
 	'@': function _(x) {
-		stack.push(stack.splice(stack.length - BigInteger(stack.pop()).toString(2) - 1, 1));
+		stack.push(stack.splice(stack.length - BigInteger(stack.pop().join(_templateObject)).toString(2) - 1, 1));
 	},
 	'&': function _(x) {
 		x = stack.pop();stack.push(stack.pop().map(function (a, y) {
@@ -108,10 +108,10 @@ commands = {
 		ret.push(ip);ip = +BigInteger(stack.pop()).toString(2);
 	},
 	'?': function _(x) {
-		x = +BigInteger(stack.pop()).toString(2);if (+BigInteger(stack.pop()).toString(2)) ret.push(ip), ip = x;
+		x = +BigInteger(stack.pop().join(_templateObject)).toString(2);if (+BigInteger(stack.pop().join(_templateObject)).toString(2)) ret.push(ip), ip = x;
 	},
 	'=': function _(x) {
-		op = +BigInteger(stack.pop()).toString(2);commands[code[++ip]] = function (x) {
+		op = +BigInteger(stack.pop().join(_templateObject)).toString(2);commands[code[++ip]] = function (x) {
 			return ret.push(ip), ip = op;
 		};
 	}
