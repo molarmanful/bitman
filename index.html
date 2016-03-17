@@ -1,0 +1,24 @@
+<!doctype html>
+<title>bitman Interpreter</title>
+<link rel=stylesheet type=text/css href=https://molarmanful.github.io/ESMin/dvsm.css>
+<style>
+*{font-family:dvsm;color:#555}
+hr{border:solid 1px #60cc76}
+a{color:#60cc76}
+textarea{width:100%}
+pre{white-space:pre}
+</style>
+<h1><a href=https://github.com/molarmanful/bitman target=_blank>bitman</a> Interpreter</h1>
+<hr>
+<h2>Code</h2>
+<textarea id=nsc></textarea><br/>
+<button onclick='nsc.insertAtCaret(eval(`"${prompt("TIP: You can use character escape sequences to insert unprintables!")||""}"`))'>Insert String</button><br><br>
+<button onclick=run()>Run</button>
+<input id=time type=checkbox>
+<label for=time>Timed Run? <input id=ms placeholder=milliseconds></label>
+<br>
+<pre id=stats></pre>
+<script src=bitman.js></script>
+<script>
+HTMLTextAreaElement.prototype.insertAtCaret=function(t){if(t=t||"",document.selection){this.focus();var e=document.selection.createRange();e.text=t}else if(this.selectionStart||0===this.selectionStart){var s=this.selectionStart,i=this.selectionEnd;this.value=this.value.substring(0,s)+t+this.value.substring(i,this.value.length),this.selectionStart=s+t.length,this.selectionEnd=s+t.length}else this.value+=t}
+</script>
