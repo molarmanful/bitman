@@ -119,7 +119,7 @@ log = function log(_) {
 	return stats.innerHTML = 'Code          │ ' + (format = [].concat(_toConsumableArray(code.replace(/[\x00-\x1f]/g, function (x) {
 		return String.fromCharCode(x.charCodeAt() + 9216);
 	}))), format[ip] = '<span style=background-color:#7ec0ee>' + (format[ip] || "") + '</span>', format.join(_templateObject)) + '\nIP            │ ' + ip + '\nStack         │ ' + (stack.length ? stack.map(function (x) {
-		return +x;
+		return (a = x.join(_templateObject).replace(/^0+/, '')) == '' ? 0 : a;
 	}).join(_templateObject2) : '') + '\nReturn Stack  │ ' + JSON.stringify(ret);
 };
 nsc.oninput = onload = function onload(_) {
