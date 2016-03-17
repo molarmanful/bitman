@@ -40,10 +40,10 @@ commands={
   	'~':x=>{stack.push(stack.pop().map(x=>+!x))},
   	'<':x=>{stack[stack.length-1].shift();stack[stack.length-1].push(0)},
   	'>':x=>{stack[stack.length-1].pop();stack[stack.length-1].shift(0)},
-	'[':x=>{stack.push([...(ip>>>0).toString(2)].map(x=>+x));ip=matching_brace()},
+	'[':x=>{stack.push([...("0".repeat(32)+(ip>>>0).toString(2)).slice(-32)].map(x=>+x));ip=matching_brace()},
 	']':x=>{ip=ret.pop()},
 	'!':x=>{ret.push(ip);ip=+`0b${stack.pop().join``}`},
-	'?':x=>{if(x=+`0b${stack.pop().join``}`,+`0b${stack.pop().join``}`)ret.push(ip),ip=x},
+	'?':x=>{x=+`0b${stack.pop().join``}`;if(+`0b${stack.pop().join``}`)ret.push(ip),ip=x},
 	'=':x=>{op=+`0b${stack.pop().join``}`;commands[code[++ip]]=x=>(ret.push(ip),ip=op)}
 }
 
