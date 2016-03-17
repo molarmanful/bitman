@@ -34,9 +34,9 @@ put=s=>out.textContent+=s
 commands={
   	'1':x=>{stack[stack.length-1].push(1);stack[stack.length-1][0]?bits++:stack[stack.length-1].shift()},
   	'+':x=>{stack.push(Array(bits).fill(0))},
-  	'$':x=>{stack.push(stack.pick(BigInteger(stack.pop()).toString(2)))},
+  	'$':x=>{stack.push(stack.pick(BigInteger(stack.pop().join``).toString(2)))},
   	'%':x=>{stack.pop()},
-  	'@':x=>{stack.push(stack.splice(stack.length-BigInteger(stack.pop()).toString(2)-1,1))},
+  	'@':x=>{stack.push(stack.splice(stack.length-BigInteger(stack.pop().join``).toString(2)-1,1))},
   	'&':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]&a))},
   	'|':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]|a))},
   	'^':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]^a))},
@@ -46,8 +46,8 @@ commands={
 	'[':x=>{stack.push([...("0".repeat(bits)+(ip>>>0).toString(2)).slice(-bits)].map(x=>+x));ip=matching_brace()},
 	']':x=>{ip=ret.pop()},
 	'!':x=>{ret.push(ip);ip=+BigInteger(stack.pop()).toString(2)},
-	'?':x=>{x=+BigInteger(stack.pop()).toString(2);if(+BigInteger(stack.pop()).toString(2))ret.push(ip),ip=x},
-	'=':x=>{op=+BigInteger(stack.pop()).toString(2);commands[code[++ip]]=x=>(ret.push(ip),ip=op)}
+	'?':x=>{x=+BigInteger(stack.pop().join``).toString(2);if(+BigInteger(stack.pop().join``).toString(2))ret.push(ip),ip=x},
+	'=':x=>{op=+BigInteger(stack.pop().join``).toString(2);commands[code[++ip]]=x=>(ret.push(ip),ip=op)}
 }
 
 //good-to-know data for runtime
