@@ -43,7 +43,7 @@ commands={
 	'[':x=>{stack.push([...(ip>>>0).toString(2)].map(x=>+x));ip=matching_brace()},
 	']':x=>{ip=ret.pop()},
 	'!':x=>{ret.push(ip);ip=+`0b${stack.pop().join``}`},
-	'?':x=>{if(x=stack.pop(),+`0b${stack.pop().join``}`)ret.push(ip),ip=+`0b${stack.pop().join``}`},
+	'?':x=>{if(x=+`0b${stack.pop().join``}`,+`0b${stack.pop().join``}`)ret.push(ip),ip=x},
 	'=':x=>{op=+`0b${stack.pop().join``}`;commands[code[++ip]]=x=>(ret.push(ip),ip=op)}
 }
 
