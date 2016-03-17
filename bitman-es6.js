@@ -50,7 +50,7 @@ commands={
 //good-to-know data for runtime
 log=_=>stats.innerHTML=`Code          │ ${format=[...code.replace(/[\x00-\x1f]/g,x=>String.fromCharCode(x.charCodeAt()+9216))],format[ip]=`<span style=background-color:#7ec0ee>${format[ip]||""}</span>`,format.join``}
 IP            │ ${ip}
-Stack         │ ${stack.length?stack.map(x=>+x).join` `:''}
+Stack         │ ${stack.length?stack.map(x=>(a=x.join``.replace(/^0+/,''))==''?0:a).join` `:''}
 Return Stack  │ ${JSON.stringify(ret)}`
 nsc.oninput=onload=_=>(code=nsc.value,log())
 
