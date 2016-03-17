@@ -1,4 +1,5 @@
-var _templateObject = _taggedTemplateLiteral([''], ['']);
+var _templateObject = _taggedTemplateLiteral([''], ['']),
+    _templateObject2 = _taggedTemplateLiteral([' '], [' ']);
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -117,7 +118,9 @@ commands = {
 log = function log(_) {
 	return stats.innerHTML = 'Code          │ ' + (format = [].concat(_toConsumableArray(code.replace(/[\x00-\x1f]/g, function (x) {
 		return String.fromCharCode(x.charCodeAt() + 9216);
-	}))), format[ip] = '<span style=background-color:#7ec0ee>' + (format[ip] || "") + '</span>', format.join(_templateObject)) + '\nIP            │ ' + ip + '\nStack         │ ' + JSON.stringify(stack) + '\nReturn Stack  │ ' + JSON.stringify(ret);
+	}))), format[ip] = '<span style=background-color:#7ec0ee>' + (format[ip] || "") + '</span>', format.join(_templateObject)) + '\nIP            │ ' + ip + '\nStack         │ ' + (stack.length ? stack.map(function (x) {
+		return +x;
+	}).join(_templateObject2) : '') + '\nReturn Stack  │ ' + JSON.stringify(ret);
 };
 nsc.oninput = onload = function onload(_) {
 	return code = nsc.value, log();
