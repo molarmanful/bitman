@@ -104,7 +104,7 @@ commands = {
 		ret.push(ip);ip = +('0b' + stack.pop().join(_templateObject));
 	},
 	'?': function _(x) {
-		if (x = stack.pop(), +('0b' + stack.pop().join(_templateObject))) ret.push(ip), ip = +('0b' + stack.pop().join(_templateObject));
+		if (x = +('0b' + stack.pop().join(_templateObject)), +('0b' + stack.pop().join(_templateObject))) ret.push(ip), ip = x;
 	},
 	'=': function _(x) {
 		op = +('0b' + stack.pop().join(_templateObject));commands[code[++ip]] = function (x) {
