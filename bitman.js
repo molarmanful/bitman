@@ -97,7 +97,7 @@ commands = {
 		stack[stack.length - 1].pop();
 	},
 	'[': function _(x) {
-		stack.push([].concat(_toConsumableArray(a = (ip >>> 0).toString(2))).map(function (x) {
+		stack.push([].concat(_toConsumableArray(a = ip.toString(2))).map(function (x) {
 			return +x;
 		}));a.length > bits && (bits = a.length);ip = matching_brace();
 	},
@@ -105,13 +105,13 @@ commands = {
 		ip = ret.pop();
 	},
 	'!': function _(x) {
-		ret.push(ip);ip = +BigInteger(stack.pop()).toString(2);
+		ret.push(ip);ip = BigInteger('0b' + stack.pop().join(_templateObject));
 	},
 	'?': function _(x) {
-		x = +BigInteger(stack.pop().join(_templateObject)).toString(2);if (+BigInteger('0b' + stack.pop().join(_templateObject))) ret.push(ip), ip = x;
+		x = +BigInteger('0b' + stack.pop().join(_templateObject));if (+BigInteger('0b' + stack.pop().join(_templateObject))) ret.push(ip), ip = x;
 	},
 	'=': function _(x) {
-		op = +BigInteger(stack.pop().join(_templateObject)).toString(2);commands[code[++ip]] = function (x) {
+		op = +BigInteger('0b' + stack.pop().join(_templateObject));commands[code[++ip]] = function (x) {
 			return ret.push(ip), ip = op;
 		};
 	}
