@@ -15,7 +15,7 @@ ip = 0;
 stack = [];
 ret = [];
 c = '';
-bits = 3;
+bits = 32;
 Array.prototype.pick = function (n) {
 	return this[this.length - n - 1];
 };
@@ -142,7 +142,7 @@ parse = function parse(_) {
 
 //clearing everything before starting prog
 init = function init(_) {
-	return code = nsc.value, ahead = [], ip = 0, bits = 3, stack = [], ret = [], console.clear();
+	return code = nsc.value, ahead = [], ip = 0, bits = 32, stack = [], ret = [], console.clear();
 };
 
 //determines either full or timed run
