@@ -68,7 +68,7 @@ commands = {
 		stack.pop();
 	},
 	'@': function _(x) {
-		stack.push(stack.splice(stack.length - BigInteger('0b' + stack.pop().join(_templateObject)) - 1, 1));
+		stack.push(stack.pick(x = BigInteger('0b' + stack.pop().join(_templateObject)))), stack.splice(stack.length - x - 2, 1);
 	},
 	'&': function _(x) {
 		x = stack.pop();stack.push(stack.pop().map(function (a, y) {
