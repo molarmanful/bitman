@@ -6,7 +6,7 @@ ip=0
 stack=[]
 ret=[]
 c=''
-bits=1
+bits=3
 Array.prototype.pick=function(n){return this[this.length-n-1]}
 Array.prototype.chunk=function(r){var t,n=[],e=0;for(t=this.length/r;t>e;)n[e]=this.splice(0,r),e++;return n}
 //lookahead stuff
@@ -62,7 +62,7 @@ nsc.oninput=onload=_=>(code=nsc.value,log())
 parse=_=>{
 	c=code[ip]
 	log()
-	if(commands[c])commands[c]();stack=stack.map(x=>Array(bits).fill(0).concat(x).slice(-bits));ip++
+	if(commands[c])commands[c]();stack=stack.map(x=>Array(bits).fill(x[0]).concat(x).slice(-bits));ip++
 }
 
 //clearing everything before starting prog
