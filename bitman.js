@@ -1,5 +1,5 @@
 var _templateObject = _taggedTemplateLiteral([''], ['']),
-    _templateObject2 = _taggedTemplateLiteral(['\n'], ['\\n']);
+    _templateObject2 = _taggedTemplateLiteral([' '], [' ']);
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -58,9 +58,6 @@ commands = {
 	'1': function _(x) {
 		stack[stack.length - 1].push(1);stack[stack.length - 1][0] ? bits++ : stack[stack.length - 1].shift();
 	},
-	'0': function _(x) {
-		stack[stack.length - 1].push(0);stack[stack.length - 1][0] ? bits++ : stack[stack.length - 1].shift();
-	},
 	'+': function _(x) {
 		stack.push(Array(bits).fill(0));
 	},
@@ -93,6 +90,9 @@ commands = {
 			return +!x;
 		}));
 	},
+	'<': function _(x) {
+		stack[stack.length - 1].push(0);stack[stack.length - 1][0] ? bits++ : stack[stack.length - 1].shift();
+	},
 	'>': function _(x) {
 		stack[stack.length - 1].pop();
 	},
@@ -121,7 +121,7 @@ commands = {
 log = function log(_) {
 	return stats.innerHTML = 'Code          │ ' + (format = [].concat(_toConsumableArray(code.replace(/[\x00-\x1f]/g, function (x) {
 		return String.fromCharCode(x.charCodeAt() + 9216);
-	}))), format[ip] = '<span style=background-color:#7ec0ee>' + (format[ip] || "") + '</span>', format.join(_templateObject)) + '\nIP            │ ' + ip + '\nStack         │ ' + (stack.length ? stack.slice(0).reverse().map(function (x) {
+	}))), format[ip] = '<span style=background-color:#7ec0ee>' + (format[ip] || "") + '</span>', format.join(_templateObject)) + '\nIP            │ ' + ip + '\nBits          │ ' + bits + '\nStack         │ ' + (stack.length ? stack.map(function (x) {
 		return x.join(_templateObject);
 	}).join(_templateObject2) : '') + '\nReturn Stack  │ ' + JSON.stringify(ret);
 };
