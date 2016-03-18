@@ -108,7 +108,7 @@ commands = {
 		ret.push(ip);ip = +BigInteger(stack.pop()).toString(2);
 	},
 	'?': function _(x) {
-		x = +BigInteger(stack.pop().join(_templateObject)).toString(2);if (+BigInteger(stack.pop().join(_templateObject)).toString(2)) ret.push(ip), ip = x;
+		x = +BigInteger(stack.pop().join(_templateObject)).toString(2);if (+BigInteger('0b' + stack.pop().join(_templateObject))) ret.push(ip), ip = x;
 	},
 	'=': function _(x) {
 		op = +BigInteger(stack.pop().join(_templateObject)).toString(2);commands[code[++ip]] = function (x) {
