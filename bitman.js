@@ -62,13 +62,13 @@ commands = {
 		stack.push(Array(bits).fill(0));
 	},
 	'$': function $(x) {
-		stack.push(stack.pick(BigInteger('0b' + stack.pop().join(_templateObject))));
+		stack.push(stack.pick(+BigInteger('0b' + stack.pop().join(_templateObject))));
 	},
 	'%': function _(x) {
 		stack.pop();
 	},
 	'@': function _(x) {
-		stack.push(stack.pick(x = BigInteger('0b' + stack.pop().join(_templateObject)))), stack.splice(stack.length - x - 2, 1);
+		stack.push(stack.pick(x = +BigInteger('0b' + stack.pop().join(_templateObject)))), stack.splice(stack.length - x - 2, 1);
 	},
 	'&': function _(x) {
 		x = stack.pop();stack.push(stack.pop().map(function (a, y) {
@@ -94,10 +94,10 @@ commands = {
 		stack[stack.length - 1].push(0);stack[stack.length - 1][0] ? bits++ : stack[stack.length - 1].shift();
 	},
 	'>': function _(x) {
-		stack[stack.length - 1].pop();
+		stack[stack.length - 1].pop(), stack[stack.length - 1].unshift(0);
 	},
 	'[': function _(x) {
-		stack.push([].concat(_toConsumableArray(a = BigInteger(ip >>> 0).toString(2))).map(function (x) {
+		stack.push(a = [0].concat(_toConsumableArray(BigInteger(ip).toString(2))).map(function (x) {
 			return +x;
 		}));a.length > bits && (bits = a.length);ip = matching_brace();
 	},
