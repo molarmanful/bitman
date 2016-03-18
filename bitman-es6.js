@@ -6,7 +6,7 @@ ip=0
 stack=[]
 ret=[]
 c=''
-bits=3
+bits=32
 Array.prototype.pick=function(n){return this[this.length-n-1]}
 Array.prototype.chunk=function(r){var t,n=[],e=0;for(t=this.length/r;t>e;)n[e]=this.splice(0,r),e++;return n}
 //lookahead stuff
@@ -66,7 +66,7 @@ parse=_=>{
 }
 
 //clearing everything before starting prog
-init=_=>(code=nsc.value,ahead=[],ip=0,bits=1,stack=[],ret=[],console.clear())
+init=_=>(code=nsc.value,ahead=[],ip=0,bits=32,stack=[],ret=[],console.clear())
 
 //determines either full or timed run
 run=_=>{init();if(time.checked)interval=setInterval('ip<code.length?parse():(clearInterval(interval),log())',ms.value||1);else for(;ip<code.length;)parse();log()}
