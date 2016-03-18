@@ -34,9 +34,9 @@ put=s=>out.textContent+=s
 commands={
   	'1':x=>{stack[stack.length-1].push(1);stack[stack.length-1][0]?bits++:stack[stack.length-1].shift()},
   	'+':x=>{stack.push(Array(bits).fill(0))},
-  	'$':x=>{stack.push(stack.pick(BigInteger(stack.pop().join``).toString(2)))},
+  	'$':x=>{stack.push(stack.pick(BigInteger('0b'+stack.pop().join``)))},
   	'%':x=>{stack.pop()},
-  	'@':x=>{stack.push(stack.splice(stack.length-BigInteger(stack.pop().join``).toString(2)-1,1))},
+  	'@':x=>{stack.push(stack.splice(stack.length-BigInteger('0b'+stack.pop().join``)-1,1))},
   	'&':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]&a))},
   	'|':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]|a))},
   	'^':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]^a))},
