@@ -46,7 +46,7 @@ commands={
 	'[':x=>{stack.push([...("0".repeat(bits)+(ip>>>0).toString(2)).slice(-bits)].map(x=>+x));ip=matching_brace()},
 	']':x=>{ip=ret.pop()},
 	'!':x=>{ret.push(ip);ip=+BigInteger(stack.pop()).toString(2)},
-	'?':x=>{x=+BigInteger(stack.pop().join``).toString(2);if(+BigInteger(stack.pop().join``).toString(2))ret.push(ip),ip=x},
+	'?':x=>{x=+BigInteger(stack.pop().join``).toString(2);if(+BigInteger('0b'+stack.pop().join``))ret.push(ip),ip=x},
 	'=':x=>{op=+BigInteger(stack.pop().join``).toString(2);commands[code[++ip]]=x=>(ret.push(ip),ip=op)}
 }
 
