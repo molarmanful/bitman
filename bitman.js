@@ -97,9 +97,9 @@ commands = {
 		stack[stack.length - 1].pop();
 	},
 	'[': function _(x) {
-		stack.push([].concat(_toConsumableArray(("0".repeat(bits) + (ip >>> 0).toString(2)).slice(-bits))).map(function (x) {
+		stack.push([].concat(_toConsumableArray(a = (ip >>> 0).toString(2))).map(function (x) {
 			return +x;
-		}));ip = matching_brace();
+		}));a.length > bits && (bits = a.length);ip = matching_brace();
 	},
 	']': function _(x) {
 		ip = ret.pop();
