@@ -33,7 +33,6 @@ put=s=>out.textContent+=s
 //functions
 commands={
   	'1':x=>{stack[stack.length-1].push(1);stack[stack.length-1][0]?bits++:stack[stack.length-1].shift()},
-  	'0':x=>{stack[stack.length-1].push(0);stack[stack.length-1][0]?bits++:stack[stack.length-1].shift()},
   	'+':x=>{stack.push(Array(bits).fill(0))},
   	'$':x=>{stack.push(stack.pick(BigInteger(stack.pop().join``).toString(2)))},
   	'%':x=>{stack.pop()},
@@ -42,6 +41,7 @@ commands={
   	'|':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]|a))},
   	'^':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]^a))},
   	'~':x=>{stack.push(stack.pop().map(x=>+!x))},
+  	'<':x=>{stack[stack.length-1].push(0);stack[stack.length-1][0]?bits++:stack[stack.length-1].shift()},
   	'>':x=>{stack[stack.length-1].pop()},
 	'[':x=>{stack.push([...("0".repeat(bits)+(ip>>>0).toString(2)).slice(-bits)].map(x=>+x));ip=matching_brace()},
 	']':x=>{ip=ret.pop()},
@@ -53,7 +53,8 @@ commands={
 //good-to-know data for runtime
 log=_=>stats.innerHTML=`Code          │ ${format=[...code.replace(/[\x00-\x1f]/g,x=>String.fromCharCode(x.charCodeAt()+9216))],format[ip]=`<span style=background-color:#7ec0ee>${format[ip]||""}</span>`,format.join``}
 IP            │ ${ip}
-Stack         │ ${stack.length?stack.slice(0).reverse().map(x=>x.join``).join`\n`:''}
+Bits          │ ${bits}
+Stack         │ ${stack.length?stack.map(x=>x.join``).join` `:''}
 Return Stack  │ ${JSON.stringify(ret)}`
 nsc.oninput=onload=_=>(code=nsc.value,log())
 
