@@ -1,3 +1,5 @@
+'use strict';
+
 var _templateObject = _taggedTemplateLiteral([''], ['']),
     _templateObject2 = _taggedTemplateLiteral([' '], [' ']);
 
@@ -13,7 +15,7 @@ ip = 0;
 stack = [];
 ret = [];
 c = '';
-bits = 1;
+bits = 3;
 Array.prototype.pick = function (n) {
 	return this[this.length - n - 1];
 };
@@ -134,13 +136,13 @@ parse = function parse(_) {
 	c = code[ip];
 	log();
 	if (commands[c]) commands[c]();stack = stack.map(function (x) {
-		return Array(bits).fill(0).concat(x).slice(-bits);
+		return Array(bits).fill(x[0]).concat(x).slice(-bits);
 	});ip++;
 };
 
 //clearing everything before starting prog
 init = function init(_) {
-	return code = nsc.value, ahead = [], ip = 0, bits = 1, stack = [], ret = [], console.clear();
+	return code = nsc.value, ahead = [], ip = 0, bits = 3, stack = [], ret = [], console.clear();
 };
 
 //determines either full or timed run
