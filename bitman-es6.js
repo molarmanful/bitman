@@ -36,7 +36,7 @@ commands={
   	'+':x=>{stack.push(Array(bits).fill(0))},
   	'$':x=>{stack.push(stack.pick(BigInteger('0b'+stack.pop().join``)))},
   	'%':x=>{stack.pop()},
-  	'@':x=>{stack.push(stack.splice(stack.length-BigInteger('0b'+stack.pop().join``)-1,1))},
+  	'@':x=>{stack.push(stack.pick(x=BigInteger('0b'+stack.pop().join``))),stack.splice(stack.length-x-2,1)},
   	'&':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]&a))},
   	'|':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]|a))},
   	'^':x=>{x=stack.pop();stack.push(stack.pop().map((a,y)=>x[y]^a))},
