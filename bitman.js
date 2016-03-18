@@ -62,13 +62,13 @@ commands = {
 		stack.push(Array(bits).fill(0));
 	},
 	'$': function $(x) {
-		stack.push(stack.pick(BigInteger(stack.pop().join(_templateObject)).toString(2)));
+		stack.push(stack.pick(BigInteger('0b' + stack.pop().join(_templateObject))));
 	},
 	'%': function _(x) {
 		stack.pop();
 	},
 	'@': function _(x) {
-		stack.push(stack.splice(stack.length - BigInteger(stack.pop().join(_templateObject)).toString(2) - 1, 1));
+		stack.push(stack.splice(stack.length - BigInteger('0b' + stack.pop().join(_templateObject)) - 1, 1));
 	},
 	'&': function _(x) {
 		x = stack.pop();stack.push(stack.pop().map(function (a, y) {
