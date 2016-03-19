@@ -54,8 +54,9 @@ commands={
 log=_=>stats.innerHTML=`Code          │ ${format=[...code.replace(/[\x00-\x1f]/g,x=>String.fromCharCode(x.charCodeAt()+9216))],format[ip]=`<span style=background-color:#7ec0ee>${format[ip]||""}</span>`,format.join``}
 IP            │ ${ip}
 Bits          │ ${bits}
-Stack         │ ${stack.length?stack.map(x=>x.join``).join` `:''}
-Return Stack  │ ${JSON.stringify(ret)}`
+Return Stack  │ ${JSON.stringify(ret)}
+Stack         │ ${stack.length?stack.slice(0).reverse().map(x=>x.join``).join`
+              │ `:''}`
 nsc.oninput=onload=_=>(code=nsc.value,log())
 
 //actual parsing
