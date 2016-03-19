@@ -116,7 +116,7 @@ commands = {
 		};
 	},
 	';': function _(x) {
-		put(stack.pop().join(_templateObject));
+		put(stack.pop().join(_templateObject).replace(/0*/g, ''));
 	},
 	':': function _(x) {
 		put(BigInteger('0b' + stack.pop().join(_templateObject)) << 0);
