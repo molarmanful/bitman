@@ -114,6 +114,18 @@ commands = {
 		op = +BigInteger('0b' + stack.pop().join(_templateObject));commands[code[++ip]] = function (x) {
 			return ret.push(ip), ip = op;
 		};
+	},
+	';': function _(x) {
+		put(stack.pop().join(_templateObject));
+	},
+	':': function _(x) {
+		put(BigInteger('0b' + stack.pop().join(_templateObject)) << 0);
+	},
+	'.': function _(x) {
+		put(BigInteger('0b' + stack.pop().join(_templateObject)));
+	},
+	',': function _(x) {
+		put(String.fromCharCode(BigInteger('0b' + stack.pop().join(_templateObject))));
 	}
 };
 
