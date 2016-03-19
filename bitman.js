@@ -123,7 +123,7 @@ log = function log(_) {
 		return String.fromCharCode(x.charCodeAt() + 9216);
 	}).replace(/</g, '&lt;').replace(/>/g, '&gt;').split(/(&[gl]t;)|/).filter(function (x) {
 		return x;
-	}), format[ip] = '<span style=background-color:#7ec0ee>' + (format[ip] || "") + '</span>', format.join(_templateObject)) + '\nIP            │ ' + ip + '\nBits          │ ' + bits + '\nReturn Stack  │ ' + JSON.stringify(ret) + '\nStack         │ ' + (stack.length ? stack.slice(0).reverse().map(function (x) {
+	}), format[ip] = '<span style=background-color:#60cc76>' + (format[ip] || "") + '</span>', format.join(_templateObject)) + '\nIP            │ ' + ip + '\nBits          │ ' + bits + '\nReturn Stack  │ ' + JSON.stringify(ret) + '\nStack         │ ' + (stack.length ? stack.slice(0).reverse().map(function (x) {
 		return x.join(_templateObject);
 	}).join(_templateObject2) : '');
 };
