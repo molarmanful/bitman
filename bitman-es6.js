@@ -47,7 +47,11 @@ commands={
 	']':x=>{ip=ret.pop()},
 	'!':x=>{ret.push(ip);ip=BigInteger('0b'+stack.pop().join``)},
 	'?':x=>{x=+BigInteger('0b'+stack.pop().join``);if(+BigInteger('0b'+stack.pop().join``))ret.push(ip),ip=x},
-	'=':x=>{op=+BigInteger('0b'+stack.pop().join``);commands[code[++ip]]=x=>(ret.push(ip),ip=op)}
+	'=':x=>{op=+BigInteger('0b'+stack.pop().join``);commands[code[++ip]]=x=>(ret.push(ip),ip=op)},
+	';':x=>{put(stack.pop().join``)},
+	':':x=>{put(BigInteger('0b'+stack.pop().join``)<<0)},
+	'.':x=>{put(BigInteger('0b'+stack.pop().join``))},
+	',':x=>{put(String.fromCharCode(BigInteger('0b'+stack.pop().join``)))}
 }
 
 //good-to-know data for runtime
