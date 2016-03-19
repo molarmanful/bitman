@@ -1,3 +1,5 @@
+'use strict';
+
 var _templateObject = _taggedTemplateLiteral([''], ['']),
     _templateObject2 = _taggedTemplateLiteral(['\n              │ '], ['\n              │ ']);
 
@@ -121,7 +123,7 @@ commands = {
 log = function log(_) {
 	return stats.innerHTML = 'Code          │ ' + (format = [].concat(_toConsumableArray(code.replace(/[\x00-\x1f]/g, function (x) {
 		return String.fromCharCode(x.charCodeAt() + 9216);
-	}))), format[ip] = '<span style=background-color:#7ec0ee>' + (format[ip] || "") + '</span>', format.join(_templateObject)) + '\nIP            │ ' + ip + '\nBits          │ ' + bits + '\nReturn Stack  │ ' + JSON.stringify(ret) + '\nStack         │ ' + (stack.length ? stack.slice(0).reverse().map(function (x) {
+	}))), format[ip] = '<span style=background-color:#7ec0ee>' + (format[ip] || "") + '</span>', format.join(_templateObject).replace(/</g, '&lt;').replace(/>/g, '&gt;')) + '\nIP            │ ' + ip + '\nBits          │ ' + bits + '\nReturn Stack  │ ' + JSON.stringify(ret) + '\nStack         │ ' + (stack.length ? stack.slice(0).reverse().map(function (x) {
 		return x.join(_templateObject);
 	}).join(_templateObject2) : '');
 };
