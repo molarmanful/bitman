@@ -154,7 +154,7 @@ parse = function parse(_) {
 
 //clearing everything before starting prog
 init = function init(_) {
-	return code = nsc.value, ahead = [], ip = 0, bits = 32, stack = [], ret = [], console.clear();
+	return code = nsc.value, ahead = [], ip = 0, bits = 32, stack = [], ret = [], out.innerHTML = "", console.clear();
 };
 
 //determines either full or timed run
