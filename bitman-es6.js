@@ -71,7 +71,7 @@ parse=_=>{
 }
 
 //clearing everything before starting prog
-init=_=>(code=nsc.value,ahead=[],ip=0,bits=32,stack=[],ret=[],console.clear())
+init=_=>(code=nsc.value,ahead=[],ip=0,bits=32,stack=[],ret=[],out.innerHTML="",console.clear())
 
 //determines either full or timed run
 run=_=>{init();if(time.checked)interval=setInterval('ip<code.length?parse():(clearInterval(interval),log())',ms.value||1);else for(;ip<code.length;)parse();log()}
