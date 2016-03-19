@@ -1,5 +1,5 @@
 # bitman
-bitman (an abbreviation of "bitwise manipulation") is a stack-based language made to be good with bit manipulation.
+bitman (an abbreviation of "bitwise manipulation") is a simple stack-based language designed to be excel at bit manipulation.
 
 ## Commands
 - `+`: Create a new integer, initially set to 0.
