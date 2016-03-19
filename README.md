@@ -15,6 +15,10 @@ bitman (an abbreviation of "bitwise manipulation") is a simple stack-based langu
 - `!`: Execute lambda.
 - `?`: Execute lambda only if condition is not 0.
 - `=a`: Set a lambda to operator `a`.
+- `;`: Output top of stack in binary.
+- `:`: Output top of stack in decimal (negative numbers supported).
+- `.`: Output top of stack in decimal (negative numbers *not* supported).
+- `,`: Output top of stack as char.
 
 ## Basics
 bitman uses a dynamic bit storage model. This means that if the current number of bits used to store each number is 32 and a number is created with 33 bits, the number of bits used will be changed to 33 bits and all numbers on the stack will be adjusted to contain 33 bits. This allows for arbitrary bit manipulation.
